@@ -3,17 +3,26 @@ import { Link, useLocation } from "react-router-dom";
 import { getNav } from "../navigation";
 import { BiLogOutCircle } from "react-icons/bi";
 
-export default function Sidebar() {
+export default function Sidebar({ showSideBar, setShowSideBar }) {
   const [allNav, setAllNav] = useState([]);
   const { pathname } = useLocation();
   useEffect(() => {
     const navs = getNav("admin");
     setAllNav(navs);
   }, []);
+
   return (
     <div>
       <div
-        className={`w-[260px] fixed bg-[#e6e7fb] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/5%)] transition-all`}
+        onClick={() => setShowSideBar(false)}
+        className={`fixed duration-200 ${
+          !showSideBar ? "invisible" : "visible"
+        } w-screen h-screen bg-[#22292f80] top-0 left-0 z-10`}
+      ></div>
+      <div
+        className={`w-[260px] fixed bg-[#e6e7fb] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/5%)] transition-all ${
+          showSideBar ? "left-0" : "-left-[260px] lg:left-0"
+        }`}
       >
         <div className="h-[70px] flex justify-center items-center">
           <Link to="/" className="w-[180px] h-[50px]">
