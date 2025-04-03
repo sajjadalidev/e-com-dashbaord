@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getNav } from "../navigation";
 import { BiLogOutCircle } from "react-icons/bi";
+import { useSelector } from "react-redux";
 
 export default function Sidebar({ showSideBar, setShowSideBar }) {
+  const { role } = useSelector((state) => state.auth);
   const [allNav, setAllNav] = useState([]);
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   useEffect(() => {
-    const navs = getNav("admin");
+    const navs = getNav(role);
     setAllNav(navs);
-  }, []);
+  }, [role]);
 
   return (
     <div>
@@ -26,11 +29,7 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
       >
         <div className="h-[70px] flex justify-center items-center">
           <Link to="/" className="w-[180px] h-[50px]">
-            <img
-              className="h-full w-full"
-              src="http://localhost:3001/images/logo.png"
-              alt=""
-            />
+            <img className="h-full w-full" src="/images/logo.png" alt="" />
           </Link>
         </div>
         <div className="px-[16px]">
@@ -52,7 +51,13 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
               </li>
             ))}
             <li>
-              <button className="text-[#030811] font-bold duration-200 px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1">
+              <button
+                onClick={() => {
+                  localStorage.removeItem("accessToken");
+                  navigate("/login");
+                }}
+                className="text-[#030811] font-bold duration-200 px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1"
+              >
                 <span>
                   <BiLogOutCircle />
                 </span>

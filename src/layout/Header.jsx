@@ -29,7 +29,7 @@ export default function Header({ showSideBar, setShowSideBar }) {
               </div>
               <img
                 className="w-[45px] h-[45px] rounded-full overflow-hidden"
-                src="http://localhost:3001/images/logo.jpg"
+                src="/images/admin.png"
                 alt="Admin"
               />
             </div>

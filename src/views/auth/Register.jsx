@@ -2,9 +2,22 @@ import { FaGoogle } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { PropagateLoader } from "react-spinners";
+import { overrideLoaderStyle } from "../../utils/utils";
+import {
+  messageClear,
+  seller_register,
+} from "../../store/Reducers/authReducer";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const { loader, successMessage, errorMessage } = useSelector(
+    (state) => state.auth
+  );
+  console.log("🚀 ~ Register ~ successMessage:", successMessage);
   const [state, setState] = useState({
     username: "",
     email: "",
@@ -16,7 +29,19 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(state);
+    dispatch(seller_register(state));
   };
+
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+    }
+  }, [successMessage, errorMessage, dispatch]);
   return (
     <div className="min-w-screen min-h-screen bg-[#cdcae9] flex justify-center items-center">
       <div className="w-[350px] text-[#ffffff]">
@@ -78,8 +103,18 @@ const Register = () => {
                 I agree to privacy policy and terms
               </label>
             </div>
-            <button className="w-full py-2 bg-slate-800 hover:shadow-blue-300/5 hover:shadow-lg text-white rounded-md mb-3">
-              Sign up
+            <button
+              disabled={loader}
+              className="w-full py-2 bg-slate-800 hover:shadow-blue-300/5 hover:shadow-lg text-white rounded-md mb-3"
+            >
+              {loader ? (
+                <PropagateLoader
+                  cssOverride={overrideLoaderStyle}
+                  color="#fff"
+                />
+              ) : (
+                "Sign up"
+              )}
             </button>
 
             <div className="flex items-center mb-3 gap-3 justify-center">

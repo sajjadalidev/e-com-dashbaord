@@ -8,5 +8,4 @@ export const sellerRoutes = [
         element: <Home />,
         ability: ['admin', 'seller'],
     },
-
 ];

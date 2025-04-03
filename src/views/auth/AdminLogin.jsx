@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PropagateLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import { admin_login, messageClear } from "../../store/Reducers/authReducer";
+import { overrideLoaderStyle } from "../../utils/utils";
 
 const AdminLogin = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,6 @@ const AdminLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(admin_login(state));
-  };
-
-  const overrideLoaderStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "0 auto",
-    height: "24px",
   };
 
   useEffect(() => {
