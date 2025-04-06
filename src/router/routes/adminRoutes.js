@@ -4,22 +4,27 @@ import { lazy } from "react";
 const Dashboard = lazy(() => import("../../views/admin/Dashboard.jsx"));
 const Orders = lazy(() => import("../../views/admin/Orders.jsx"))
 const Categories = lazy(() => import("../../views/admin/Categories.jsx"))
-
+const Sellers = lazy(() => import("../../views/admin/Sellers.jsx"));
 
 export const adminRoutes = [
     {
-        path: "admin/dashboard", // URL
+        path: "admin/dashboard",
         element: <Dashboard />,
         role: 'admin',
     },
     {
-        path: "admin/dashboard/orders", // URL
+        path: "admin/dashboard/orders",
         element: <Orders />,
         role: 'admin',
     },
     {
-        path: "admin/dashboard/categories", // URL
+        path: "admin/dashboard/categories",
         element: <Categories />,
+        role: 'admin',
+    },
+    {
+        path: "admin/dashboard/sellers",
+        element: <Sellers />,
         role: 'admin',
     },
 

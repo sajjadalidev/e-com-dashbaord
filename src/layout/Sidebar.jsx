@@ -9,6 +9,7 @@ export default function Sidebar({ showSideBar, setShowSideBar }) {
   const [allNav, setAllNav] = useState([]);
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
   useEffect(() => {
     const navs = getNav(role);
     setAllNav(navs);
