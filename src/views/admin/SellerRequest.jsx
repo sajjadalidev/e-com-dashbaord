@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Pagination from "../components/Pagination";
-import { BsEye } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
 
-const DeActivateSellers = () => {
+const SellerRequest = () => {
   const [currentPage, setCurrentPage] = useState(1);
   //   const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
   return (
     <div className="px-2 lg:px-7 pt-5">
-      <h1 className="text-[20px] font-bold mb-3">Deactivate Seller</h1>
+      <h1 className="text-[20px] font-bold mb-3">Seller Request</h1>
       <div className="w-full p-4 bg-[#6a5fdf] rounded-md">
         <div className="flex justify-between items-center">
           <select
@@ -31,7 +32,6 @@ const DeActivateSellers = () => {
             <div className="text-sm text-[#d0d2d6] uppercase border-b border-slate-700">
               <div className="flex justify-between items-center">
                 <div className="py-3 w-[25%] font-bold">No</div>
-                <div className="py-3 w-[13%] font-bold">Image</div>
                 <div className="py-3 w-[18%] font-bold">Name</div>
                 <div className="py-3 w-[18%] font-bold">Email</div>
                 <div className="py-3 w-[18%] font-bold">Payment Status</div>
@@ -45,15 +45,17 @@ const DeActivateSellers = () => {
                   <div className="py-3 w-[25%] font-medium whitespace-nowrap">
                     {item}
                   </div>
-                  <div className="py-3 w-[13%] font-medium">
-                    <img src="https://picsum.photos/100" alt="seller-profile" />
-                  </div>
                   <div className="py-3 w-[18%] font-medium">Sajjad Ali</div>
                   <div className="py-3 w-[18%] font-medium">abc@gmail.com</div>
-                  <div className="py-3 w-[18%] font-medium">Pending</div>
+                  <div className="py-3 w-[18%] font-medium">Active</div>
                   <div className="py-3 w-[18%] font-medium">Deactive</div>
                   <div className="py-3 w-[18%] font-medium">
-                    <BsEye />
+                    <Link
+                      // className="p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50"
+                      to={`/admin/dashboard/seller/detail/${item}`}
+                    >
+                      <FaEye />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -74,4 +76,4 @@ const DeActivateSellers = () => {
   );
 };
 
-export default DeActivateSellers;
+export default SellerRequest;

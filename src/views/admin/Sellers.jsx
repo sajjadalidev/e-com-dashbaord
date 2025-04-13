@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { LuCircleArrowDown } from "react-icons/lu";
-import { Link } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { BsEye } from "react-icons/bs";
 
 const Sellers = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
   return (
     <div className="px-2 lg:px-7 pt-5">
+      <h1 className="text-[20px] font-bold mb-3">Seller</h1>
       <div className="w-full p-4 bg-[#6a5fdf] rounded-md">
         <div className="flex justify-between items-center">
           <select

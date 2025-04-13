@@ -50,7 +50,7 @@ export const allNav = [{
 {
     id: 7,
     title: "Seller Request",
-    path: "/admin/dashboard/sellers-request",
+    path: "/admin/dashboard/seller-request",
     role: "admin",
     icon: <FaCodePullRequest />
 },

@@ -7,6 +7,9 @@ const Categories = lazy(() => import("../../views/admin/Categories.jsx"))
 const Sellers = lazy(() => import("../../views/admin/Sellers.jsx"));
 const PaymentRequests = lazy(() => import("../../views/admin/PaymentRequests.jsx"));
 const DeActivateSellers = lazy(() => import("../../views/admin/DeActivateSeller.jsx"));
+const SellerRequest = lazy(() => import('./../../views/admin/SellerRequest.jsx'));
+const ChatSeller = lazy(() => import("../../views/admin/ChatSeller.jsx"));
+const SellerDetails = lazy(() => import("../../views/admin/SellerDetails.jsx"))
 
 export const adminRoutes = [
     {
@@ -37,6 +40,21 @@ export const adminRoutes = [
     {
         path: "admin/dashboard/deactivate-sellers",
         element: <DeActivateSellers />,
+        role: 'admin',
+    },
+    {
+        path: "admin/dashboard/seller-request",
+        element: <SellerRequest />,
+        role: 'admin',
+    },
+    {
+        path: "admin/dashboard/chat-seller",
+        element: <ChatSeller />,
+        role: 'admin',
+    },
+    {
+        path: "admin/dashboard/seller/detail/:sellerId",
+        element: <SellerDetails />,
         role: 'admin',
     },
 
