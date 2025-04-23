@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LuCircleArrowDown } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import Pagination from "../components/Pagination";
+import Pagination from "../../components/Pagination";
 
 const Orders = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,7 +49,7 @@ const Orders = () => {
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">
-                  <Link>View</Link>
+                  <Link to={`/admin/dashboard/orders/details/${1}`}>View</Link>
                 </div>
                 <div className="py-3 w-[8%] font-medium">
                   <LuCircleArrowDown />
@@ -77,7 +77,7 @@ const Orders = () => {
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">Pending</div>
                 <div className="py-3 w-[18%] font-medium">
-                  <Link>View</Link>
+                  <Link to={`/admin/dashboard/orders/details/${1}`}>View</Link>
                 </div>
                 <div className="py-3 w-[8%] font-medium">
                   <LuCircleArrowDown />

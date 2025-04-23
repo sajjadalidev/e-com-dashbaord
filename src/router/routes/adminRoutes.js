@@ -2,14 +2,15 @@ import { lazy } from "react";
 
 // Lazy-loaded components
 const Dashboard = lazy(() => import("../../views/admin/Dashboard.jsx"));
-const Orders = lazy(() => import("../../views/admin/Orders.jsx"))
+const Orders = lazy(() => import("../../views/admin/order/Orders.jsx"))
 const Categories = lazy(() => import("../../views/admin/Categories.jsx"))
-const Sellers = lazy(() => import("../../views/admin/Sellers.jsx"));
+const Sellers = lazy(() => import("../../views/admin/sellers/Sellers.jsx"));
 const PaymentRequests = lazy(() => import("../../views/admin/PaymentRequests.jsx"));
-const DeActivateSellers = lazy(() => import("../../views/admin/DeActivateSeller.jsx"));
-const SellerRequest = lazy(() => import('./../../views/admin/SellerRequest.jsx'));
+const DeActivateSellers = lazy(() => import("../../views/admin/sellers/DeActivateSeller.jsx"));
+const SellerRequest = lazy(() => import('../../views/admin/sellers/SellerRequest.jsx'));
 const ChatSeller = lazy(() => import("../../views/admin/ChatSeller.jsx"));
-const SellerDetails = lazy(() => import("../../views/admin/SellerDetails.jsx"))
+const SellerDetails = lazy(() => import("../../views/admin/sellers/SellerDetails.jsx"));
+const OrderDetials = lazy(() => import("../../views/admin/order/OrderDetails.jsx"));
 
 export const adminRoutes = [
     {
@@ -21,6 +22,11 @@ export const adminRoutes = [
         path: "admin/dashboard/orders",
         element: <Orders />,
         role: 'admin',
+    },
+    {
+        path: "admin/dashboard/orders/details/:orderId",
+        element: <OrderDetials />,
+        role: "admin"
     },
     {
         path: "admin/dashboard/categories",
