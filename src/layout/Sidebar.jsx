@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 export default function Sidebar({ showSideBar, setShowSideBar }) {
   const { role } = useSelector((state) => state.auth);
   const [allNav, setAllNav] = useState([]);
+  console.log("🚀 ~ Sidebar ~ allNav:", allNav);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 

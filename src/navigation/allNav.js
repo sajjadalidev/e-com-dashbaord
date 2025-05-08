@@ -71,56 +71,49 @@ export const allNav = [{
 {
     id: 10,
     title: "Add Product",
-    path: "/seller/add-product",
+    path: "/seller/dashboard/add-product",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 11,
     title: "All Product",
-    path: "/seller/products",
+    path: "/seller/dashboard/products",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 12,
     title: "Discount Product",
-    path: "/seller/add-product",
-    role: "seller",
-    icon: <AiOutlineDashboard />
-},
-{
-    id: 12,
-    title: "Orders",
-    path: "/seller/orders",
+    path: "/seller/dashboard/discount-product",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 13,
-    title: "Payments",
-    path: "/seller/payments",
+    title: "Orders",
+    path: "/seller/dashboard/orders",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 14,
-    title: "Chat Customer",
-    path: "/seller/chat-customer",
+    title: "Payments",
+    path: "/seller/dashboard/payments",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 15,
-    title: "Chat Support",
-    path: "/seller/chat-support",
+    title: "Chat Customer",
+    path: "/seller/dashboard/chat-customer",
     role: "seller",
     icon: <AiOutlineDashboard />
 },
 {
     id: 16,
-    title: "Profile",
-    path: "/seller/profile",
+    title: "Chat Support",
+    path: "/seller/dashboard/chat-support",
     role: "seller",
     icon: <AiOutlineDashboard />
 },

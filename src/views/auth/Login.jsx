@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { FaGoogle } from "react-icons/fa6";
@@ -11,6 +11,7 @@ import { messageClear, seller_login } from "../../store/Reducers/authReducer";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loader, successMessage, errorMessage } = useSelector(
     (state) => state.auth
   );
@@ -34,7 +35,7 @@ const Login = () => {
     if (successMessage) {
       toast.success(successMessage);
       dispatch(messageClear());
-      // navigate("/");
+      navigate("/seller/dashboard");
     }
   }, [successMessage, errorMessage, dispatch]);
   return (
